@@ -1,6 +1,12 @@
 /// <reference types="cypress" />
 import LoginPage from '../login/loginPage'
+import buildEnv from '../../../support/buildEnv'
+
 class LoginLogic{
+    rotas(){
+        buildEnv()
+    }
+
     acessarAplicacao() {
         cy.visit(Cypress.config("baseUrl"))
     }
@@ -12,7 +18,7 @@ class LoginLogic{
 
     preencherCampoSenha() {
         cy.get(LoginPage.getTxtPassword())
-            .type('automacaoteste')
+            .type('senha errada')
     }
 
     clicarBtnEntrar() {
@@ -23,6 +29,10 @@ class LoginLogic{
     validarUsuarioLogado() {
         cy.xpath(LoginPage.getLblMsgBemVindo())
             .should('visible')
+    }
+
+    cleanLocalStorage(){
+        cy.clearLocalStorage()
     }
 }
 export default new LoginLogic;

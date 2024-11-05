@@ -1,8 +1,8 @@
 import { Given, Then, When, And } from "cypress-cucumber-preprocessor/steps"
 import LoginLogic from '../login/loginLogic';
 
-Given('que crio a rota signing', ()=>{
-  
+Given('que crio as rotas signing e saldo', ()=>{
+  LoginLogic.rotas()
 })
 
 Given('que acesso o site barrigareact', () => {
@@ -21,6 +21,10 @@ And('pressiono entrar', () => {
   LoginLogic.clicarBtnEntrar()
 })
 
-Then('a mensagem login realizado com sucesso é exibida', () => {
+Then('a mensagem bem vindo é exibida', () => {
   LoginLogic.validarUsuarioLogado()
+})
+
+Then('limpo o localStorage', ()=>{
+LoginLogic.cleanLocalStorage()
 })
