@@ -1,7 +1,7 @@
 let txtEmail = "[data-test=email]"
 let txtPassword = "[data-test=passwd]"
 let btnEntrar = "//button[contains(text(), 'Entrar')]"
-let lblBemVindo = "//*[contains(text(), 'Bem vindo, André Automatizador!')]"
+let lblBemVindo = "//*[contains(text(), 'Bem vindo')]"
 
 class LoginPage{
     getTxtEmail() {

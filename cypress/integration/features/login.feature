@@ -1,9 +1,10 @@
 #language: pt 
 Funcionalidade: login
     Cenário: Realizar login com sucesso
-    Dado que crio a rota signing
+    Dado que crio as rotas signing e saldo
 Dado que acesso o site barrigareact
 Quando preencho o email
 E preencho a senha
 E pressiono entrar
-Então a mensagem login realizado com sucesso é exibida
+Então a mensagem bem vindo é exibida
+Então limpo o localStorage
