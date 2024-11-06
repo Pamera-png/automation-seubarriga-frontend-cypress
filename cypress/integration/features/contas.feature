@@ -15,3 +15,10 @@ Cenário: Inserir conta com sucesso
 E digito o nome da conta
 E clico em save
 Então a mensagem Conta inserida com sucesso é exibida
+
+Cenário: Alterar conta com sucesso
+Dado Que clico em alterar uma conta específica
+Quando limpo o campo nome da conta
+E digito um novo nome
+E clico em salvar
+Então a mensagem conta atualizada com sucesso é exibida

@@ -4,6 +4,7 @@ let txtNomeConta="[data-test=nome]"
 let btnSave = "//button[@alt='Salvar']"
 let lblValidarContaSalva=".toast-message"
 let typeNome="Conta de teste"
+let caminho="//table//td[contains(., 'Banco')]/..//i[@class='far fa-edit']"
 
 class ContasPage{
     getBtnSettings(){
@@ -28,6 +29,10 @@ return linkContas
 
     getTypeNome(){
         return typeNome
+    }
+
+    getCaminho(){
+        return caminho
     }
 
 }

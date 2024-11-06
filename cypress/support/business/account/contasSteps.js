@@ -23,3 +23,24 @@ Then('a mensagem Conta inserida com sucesso é exibida',()=>{
 ContasLogic.validarContaSalva()
     })
     
+Given('Que clico em alterar uma conta específica', () => {
+    ContasLogic.rotaAtualizarConta()
+    ContasLogic.clicarAtualizar()
+    })
+    
+    When('limpo o campo nome da conta', ()=>{
+    ContasLogic.limparNome()
+    })
+    
+    When('digito um novo nome', ()=>{
+    ContasLogic.digitarNovoNome()
+    })
+    
+    When('clico em salvar', ()=>{
+        ContasLogic.rotaContaAlterada()
+    ContasLogic.clicarSalvar()
+    })
+    
+    Then('a mensagem conta atualizada com sucesso é exibida', ()=>{
+    ContasLogic.validarContaAtualizada()
+    })

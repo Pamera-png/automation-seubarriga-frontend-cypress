@@ -1,66 +1,118 @@
 /// <reference types="cypress" />
 import ContasPage from '../account/contasPage'
 
-class ContasLogic{
-    rotaInserirConta(){
+class ContasLogic {
+    rotaInserirConta() {
         cy.route({
             method: 'POST',
             url: '/contas',
             response: {
-id: 3,
-nome: 'Conta de teste',
-visivel: true,
-usuario_id: 1
+                id: 3,
+                nome: 'Conta de teste',
+                visivel: true,
+                usuario_id: 1
             }
         }).as('saveConta')
     }
 
-    clicarSettings(){        
+    clicarSettings() {
         cy.get(ContasPage.getBtnSettings()).click()
     }
 
-    clicarAccounts(){
+    clicarAccounts() {
         cy.xpath(ContasPage.getLinkContas()).click()
     }
 
-    rotaObterConta(){
+    rotaObterConta() {
         cy.route({
             method: 'GET',
             url: '/contas',
             response: [
                 {
-                    id: 1, 
-                    nome: 'Carteira', 
-                    visivel: true, 
+                    id: 1,
+                    nome: 'Carteira',
+                    visivel: true,
                     usuario_id: 1
-            },
-            {
-                id: 2, 
-                nome: 'Banco', 
-                visivel: true, 
-                usuario_id: 1
-            },
-            {
-                id: 3, 
-                nome: 'Conta de teste',
-                visivel: true, 
-                usuario_id: 1
-            },
+                },
+                {
+                    id: 2,
+                    nome: 'Banco',
+                    visivel: true,
+                    usuario_id: 1
+                },
+                {
+                    id: 3,
+                    nome: 'Conta de teste',
+                    visivel: true,
+                    usuario_id: 1
+                },
             ]
-                    }).as('contasSave')            
+        }).as('contasSave')
     }
 
-    inserirNomeConta(){
-cy.get(ContasPage.getTxtNomeConta())
-.type(ContasPage.getTypeNome())
+    inserirNomeConta() {
+        cy.get(ContasPage.getTxtNomeConta())
+            .type(ContasPage.getTypeNome())
     }
 
-    clicarSalvar(){
+    clicarSalvar() {
         cy.xpath(ContasPage.getBtnSalvar()).click()
     }
-    
-    validarContaSalva(){
+
+    validarContaSalva() {
         cy.get(ContasPage.getLblValidarContaSalva()).should('contain', 'Conta inserida com sucesso')
+    }
+
+    rotaAtualizarConta() {
+        cy.route({
+            method: 'PUT',
+            url: '/contas/**',
+            response:
+            {
+                id: 1,
+                nome: 'Conta alterada',
+                visivel: true,
+                usuario_id: 1
+            }
+        })
+    }
+
+    clicarAtualizar() {
+        cy.xpath(ContasPage.getCaminho()).click()
+    }
+
+    limparNome() {
+        cy.get(ContasPage.getTxtNomeConta()).clear()
+    }
+
+    digitarNovoNome() {
+        cy.get(ContasPage.getTxtNomeConta())
+            .type('Conta alterada')
+    }
+
+    rotaContaAlterada(){
+        cy.route({
+            method: 'GET',
+            url: '/contas',
+            response: [
+                {
+                    id: 1,
+                    nome: 'Carteira',
+                    visivel: true,
+                    usuario_id: 1
+                },
+                {
+                    id: 2,
+                    nome: 'Conta alterada',
+                    visivel: true,
+                    usuario_id: 1
+                },
+            ]
+        }).as('contas alteradas')
+    }
+
+    validarContaAtualizada() {
+        cy.get(ContasPage.getLblValidarContaSalva()).should('contain', 'Conta atualizada com sucesso')
     }
 
 }
