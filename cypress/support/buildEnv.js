@@ -28,6 +28,26 @@ const buildEnv = () => {
             },
         ]
     }).as('saldo')
+
+    cy.route({
+        method: 'GET',
+        url: '/contas',
+        response: [
+            {
+                id: 1,
+                nome: 'Carteira',
+                visivel: true,
+                usuario_id: 1
+            },
+            {
+                id: 2,
+                nome: 'Banco',
+                visivel: true,
+                usuario_id: 1
+            },
+        ]
+    }).as('contas')
+
 }
 
 export default buildEnv
