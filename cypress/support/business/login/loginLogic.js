@@ -3,11 +3,8 @@ import LoginPage from '../login/loginPage'
 import buildEnv from '../../../support/buildEnv'
 
 class LoginLogic{
-    rotas(){
-        buildEnv()
-    }
-
     acessarAplicacao() {
+        buildEnv()
         cy.visit(Cypress.config("baseUrl"))
     }
 

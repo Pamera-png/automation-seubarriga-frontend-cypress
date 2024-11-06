@@ -1,10 +1,6 @@
 import { Given, Then, When, And } from "cypress-cucumber-preprocessor/steps"
 import LoginLogic from '../login/loginLogic';
 
-Given('que crio as rotas signing e saldo', ()=>{
-  LoginLogic.rotas()
-})
-
 Given('que acesso o site barrigareact', () => {
   LoginLogic.acessarAplicacao()
 })
