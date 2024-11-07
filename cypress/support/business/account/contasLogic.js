@@ -60,7 +60,7 @@ class ContasLogic {
     }
 
     validarContaSalva() {
-        cy.get(ContasPage.getLblValidarContaSalva()).should('contain', 'Conta inserida com sucesso')
+        cy.get(ContasPage.getLblValidarMensagem()).should('contain', 'Conta inserida com sucesso')
     }
 
     rotaAtualizarConta() {
@@ -112,8 +112,28 @@ class ContasLogic {
     }
 
     validarContaAtualizada() {
-        cy.get(ContasPage.getLblValidarContaSalva()).should('contain', 'Conta atualizada com sucesso')
+        cy.get(ContasPage.getLblValidarMensagem()).should('contain', 'Conta atualizada com sucesso')
     }
 
+    rotaRepetirConta(){
+cy.route({
+method: 'POST',
+url: '/contas',
+response: {
+"error": "Já existe uma conta com esse nome!" 
+},
+status: 400
+}).as('saveContaMesmoNome')
+    }
+
+    digitarContaRepetida(){
+        cy.get(ContasPage.getTxtNomeConta())
+        .type(ContasPage.getTypeContaRepetida())
+    }
+    
+    validarContaRepetida(){
+        cy.get(ContasPage.getLblValidarMensagem()).should('contain', 'code 400')
+    }
+    
 }
 export default new ContasLogic;

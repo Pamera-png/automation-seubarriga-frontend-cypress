@@ -22,3 +22,8 @@ Quando limpo o campo nome da conta
 E digito um novo nome
 E clico em salvar
 Então a mensagem conta atualizada com sucesso é exibida
+
+Cenário: Criar conta repetida
+Quando digito o nome de uma conta existente
+E clico em save
+Então a mensagem Request failed with status code 400 é exibida
