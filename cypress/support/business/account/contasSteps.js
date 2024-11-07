@@ -44,3 +44,16 @@ Given('Que clico em alterar uma conta específica', () => {
     Then('a mensagem conta atualizada com sucesso é exibida', ()=>{
     ContasLogic.validarContaAtualizada()
     })
+
+    When('digito o nome de uma conta existente', ()=>{
+        ContasLogic.rotaRepetirConta()
+        ContasLogic.digitarContaRepetida()
+        })
+        
+        And('clico em save', ()=>{
+            ContasLogic.clicarSalvar()
+        })
+        
+        Then('a mensagem Request failed with status code 400 é exibida', ()=>{
+        ContasLogic.validarContaRepetida()
+        })
