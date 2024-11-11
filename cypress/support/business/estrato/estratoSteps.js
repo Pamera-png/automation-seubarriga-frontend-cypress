@@ -13,3 +13,25 @@ EstratoLogic.contarLinhas()
 Then('busco por uma movimentacao específica',()=>{
 EstratoLogic.buscarMovimentacao()
 })
+
+And('clico em alterar', () =>{
+    EstratoLogic.rotaAlterarMovimentacao()
+    EstratoLogic.clicarAlterarMovimentacao()
+    })
+    
+    And('verifico a conta a ser alterada', ()=>{
+    EstratoLogic.validarDescricao()
+    })
+    
+    And('clico em alterar status', ()=>{
+    EstratoLogic.clicarAlterarStatus()
+    })
+    
+    And('clico em salvar', ()=>{
+    EstratoLogic.clicarSalvar()
+    })
+    
+    Then('a mensagem movimentação alterada com sucesso é exibida', ()=>{
+    EstratoLogic.validarMensagem()
+    })
+    
