@@ -35,3 +35,11 @@ And('clico em alterar', () =>{
     EstratoLogic.validarMensagem()
     })
     
+    And('clico em deletar movimentação', ()=>{
+        EstratoLogic.rotaDeletarMovimentacao()
+        EstratoLogic.clicarDeletarMovimentacao()
+        })
+        
+        Then('a mensagem movimentação removida com sucesso é exibida', ()=>{
+            EstratoLogic.validarMensagem()
+        })

@@ -20,3 +20,7 @@ E verifico a conta a ser alterada
 E clico em alterar status
 E clico em salvar
 Então a mensagem movimentação alterada com sucesso é exibida
+
+Cenário: Remover movimentacao
+E clico em deletar movimentação
+Então a mensagem movimentação removida com sucesso é exibida
