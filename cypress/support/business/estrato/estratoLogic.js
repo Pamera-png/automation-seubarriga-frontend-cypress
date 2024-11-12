@@ -85,5 +85,19 @@ class EstratoLogic{
 cy.get(EstratoPage.getLblValidarMensagem()).should('contain', 'sucesso')
         }
 
+        rotaDeletarMovimentacao(){
+cy.route({
+method: 'DELETE',
+url: '/transacoes/**',
+response: {
+    },
+    status: 204
+}).as('del')
+        }
+
+        clicarDeletarMovimentacao(){
+            cy.xpath(EstratoPage.getFnDeletar('Movimentacao para exclusao')).click()
+                }
+            
 }
 export default new EstratoLogic;

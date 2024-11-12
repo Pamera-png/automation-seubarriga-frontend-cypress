@@ -6,6 +6,7 @@ let txtDescricao="[data-test=descricao]"
 let btnAlterarStatus="[data-test=status]"
 let btnSalvar=".btn-primary"
 let lblValidarMensagem=".toast-message"
+let fnDeletar=conta => `//span[contains(., '${conta}')]/../../..//i[@class='far fa-trash-alt']`
 
 class EstratoPage{
 getLinkEstrato(){
@@ -40,5 +41,9 @@ getFnAlterar(conta){
 return lblValidarMensagem
         }
 
+        getFnDeletar(conta){
+            return fnDeletar(conta)
+        }
+    
 }
 export default new EstratoPage;
