@@ -12,7 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "cypress": "^3.6.0",
-    "cypress-cucumber-preprocessor": "3.0"
+    "cypress-cucumber-preprocessor": "3.0",
+    "cypress-xpath": "^1.4.0"
   },
   "cypress-cucumber-preprocessor": {
     "step_definitions": "cypress/support/"
