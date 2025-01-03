@@ -19,10 +19,6 @@ And('clico em salvar', () => {
     DadosLogic.clicarSalvar()
 })
 
-And('valido o enviio dos dados', () => {
-    DadosLogic.validarDados()
-})
-
 Then('uma mensagem Conta inserida com sucesso é exibida', () => {
     DadosLogic.validarContaSalva()
 })

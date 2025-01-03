@@ -59,14 +59,12 @@ class DadosLogic {
 
     clicarSalvar() {
         cy.xpath(DadosPage.getBtnSalvar()).click()
-    }
-
-    validarDados() {
-
+        
         cy.wait('@saveConta')
-            .then(() => {
+        .then(() => {
                 console.log(reqStub.args[0][0]);
-
+expect(reqStub.args[0][0].request.body.nome).to.be.empty
+expect(reqStub.args[0][0].request.headers).to.have.property('Authorization')        
             })
     }
 
