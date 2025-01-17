@@ -13,5 +13,5 @@ E clico em contas
 
 Cenário: Validar dados enviados para criar conta
 E insiro o nome da conta
-E clico em salvar
+E clico em salvar2
 Então uma mensagem Conta inserida com sucesso é exibida

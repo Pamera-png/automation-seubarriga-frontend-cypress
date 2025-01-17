@@ -15,7 +15,7 @@ And('insiro o nome da conta', () => {
     DadosLogic.inserirNomeConta()
 })
 
-And('clico em salvar', () => {
+And('clico em salvar2', () => {
     DadosLogic.clicarSalvar()
 })
 
